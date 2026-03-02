@@ -1,0 +1,22 @@
+<div class="form-container">
+  <form (ngSubmit)="onSubmit()" #myForm="ngForm">
+    
+    <div class="form-group">
+      <label for="number">Enter a number:</label>
+      <input type="number" id="number" name="number" ngModel required>
+    </div>
+
+    <div class="form-group">
+      <label for="date">Select a date:</label>
+      <input type="date" id="date" name="date" ngModel required>
+    </div>
+
+    <div class="form-group">
+      <label for="text">Enter text:</label>
+      <input type="text" id="text" name="text" ngModel maxlength="50" required>
+    </div>
+
+    <button type="submit" [disabled]="!myForm.form.valid">Submit</button>
+
+  </form>
+</div>

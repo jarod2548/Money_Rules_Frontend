@@ -1,0 +1,25 @@
+/* Global layout */
+.app-layout {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh; /* full viewport height */
+}
+
+/* Fixed-height banner */
+.banner {
+  background-color: #222;
+  color: white;
+  text-align: center;
+  padding: 15px 0;
+  font-size: 1.5rem;
+  flex-shrink: 0; /* banner does not shrink */
+}
+
+/* Page content fills remaining space */
+.page-content {
+  flex: 1; /* take all remaining vertical space */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}

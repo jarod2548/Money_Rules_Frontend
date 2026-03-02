@@ -1,0 +1,13 @@
+services:
+
+  frontend:
+    build: .
+    container_name: financial-frontend
+    ports:
+      - "4200:80"
+    networks:
+      - app_default
+
+networks:
+  app_default:
+    external: true 
