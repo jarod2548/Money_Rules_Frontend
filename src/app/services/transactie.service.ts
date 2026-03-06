@@ -11,7 +11,6 @@ import { Transactie } from '../models/Transactie';
 })
 export class TransactieService {
   private apiUrl = '/api/transacties';
-  private api2Url = '/api/transactiesError';
 
   constructor(private http: HttpClient) {}
 
