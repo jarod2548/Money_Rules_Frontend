@@ -2,6 +2,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { CategorieDTO } from '../models/CategorieDTO';
 
 
 
@@ -15,7 +16,7 @@ export class CategorieService {
   getCategorien(): Observable<CategorieDTO[]> {
     return this.http.get<CategorieDTO[]>('/api/categorie');
   }
-  maakCatogrie(categorie : CategorieDTO): Observable<CategorieDTO>{
+  maakCategorie(categorie : CategorieDTO): Observable<CategorieDTO>{
     return this.http.post<CategorieDTO>('/api/maakCategorie', categorie);
   }
 }
