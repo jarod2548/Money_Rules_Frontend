@@ -9,7 +9,7 @@
 .banner {
   background-color: #222;
   color: white;
-  text-align: center;
+  text-align: middle;
   padding: 15px 0;
   font-size: 1.5rem;
   flex-shrink: 0; /* banner does not shrink */

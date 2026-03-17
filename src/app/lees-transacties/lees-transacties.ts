@@ -12,7 +12,7 @@ import { CommonModule } from '@angular/common';
   styleUrls: ['./lees-transacties.css'],
 })
 export class LeesTransacties {
-  transacties = signal<Transactie[]>([]);
+  transacties = signal<TransactieDTO[]>([]);
   isLoading = signal(true);
   errorMessage = signal('');
 
