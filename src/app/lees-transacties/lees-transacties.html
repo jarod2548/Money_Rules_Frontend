@@ -1,10 +1,5 @@
 <h2>Transacties</h2>
 
-<!-- Loading state -->
-@if (isLoading()) {
-  <p>Bezig met laden...</p>
-}
-
 <!-- Error state -->
 @if (errorMessage()) {
   <p style="color: red;">{{ errorMessage() }}</p>
