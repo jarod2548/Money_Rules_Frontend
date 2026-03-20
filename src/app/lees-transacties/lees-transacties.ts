@@ -1,6 +1,6 @@
 import { Component, OnInit, signal } from '@angular/core';
 import { TransactieService } from '../services/transactie.service';
-import { Transactie } from '../models/Transactie';
+import { TransactieDTO } from '../models/TransactieDTO';
 import { Observable } from 'rxjs';
 import { CommonModule } from '@angular/common';
 

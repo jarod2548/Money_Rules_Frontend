@@ -1,6 +1,6 @@
 export interface TransactieDTO {
   aantal: number;         
-  beschrijving: string;    
+  beschrijving?: string;    
   datum: string; 
-  id : bigint;
+  id? : bigint;
 }
