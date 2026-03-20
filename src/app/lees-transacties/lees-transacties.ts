@@ -1,7 +1,7 @@
-import { Component, OnInit, signal } from '@angular/core';
+import { Component, Inject, OnInit, PLATFORM_ID, signal } from '@angular/core';
 import { TransactieService } from '../services/transactie.service';
 import { TransactieDTO } from '../models/TransactieDTO';
-import { CommonModule } from '@angular/common';
+import { CommonModule, isPlatformBrowser } from '@angular/common';
 
 @Component({
   selector: 'app-lees-transacties',
@@ -12,14 +12,15 @@ import { CommonModule } from '@angular/common';
 })
 export class LeesTransacties {
   transacties = signal<TransactieDTO[]>([]);
-  isLoading = signal(true);
   errorMessage = signal('');
 
-  constructor(private transactieService: TransactieService) {
+  constructor(private transactieService: TransactieService,  @Inject(PLATFORM_ID) private platformId: Object) {
   }
 
    ngOnInit() {
-    this.loadTransacties();
+    if (isPlatformBrowser(this.platformId)) {
+      this.loadTransacties();
+    }
   }
 
   loadTransacties() {
@@ -28,14 +29,12 @@ export class LeesTransacties {
       next: (data) => {
         console.log('4 leesTransacties: received data', data);
         this.transacties.set(data);
-        this.isLoading.set(false);
       },
       error: (error) => {
         console.error('leesTransacties: error fetching transacties', error);
         this.errorMessage.set(
           'Er is een fout opgetreden bij het laden van transacties.'
         );
-        this.isLoading.set(false);
       },
     });
   }
