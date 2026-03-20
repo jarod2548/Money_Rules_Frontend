@@ -1,7 +1,6 @@
 import { Component, OnInit, signal } from '@angular/core';
 import { TransactieService } from '../services/transactie.service';
 import { TransactieDTO } from '../models/TransactieDTO';
-import { Observable } from 'rxjs';
 import { CommonModule } from '@angular/common';
 
 @Component({
@@ -17,9 +16,11 @@ export class LeesTransacties {
   errorMessage = signal('');
 
   constructor(private transactieService: TransactieService) {
-    this.loadTransacties();
   }
 
+   ngOnInit() {
+    this.loadTransacties();
+  }
 
   loadTransacties() {
     console.log('leesTransacties: calling getTransacties()...');
