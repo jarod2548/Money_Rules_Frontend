@@ -1,5 +1,12 @@
 <div class="banner">
-  <h1>Money Rulings</h1>
+  <a id="banner-name" [routerLink]="['/home']">Money Rulings</a>
+  @if(userData().naam === ''){
+    <button id="login-button" [routerLink]="['/login']">Login</button>
+  }
+  @else{
+    <button id="login-button">{{ userData().naam || ''}}</button>
+  }
+  
 </div>
 
 <div class="page-content">

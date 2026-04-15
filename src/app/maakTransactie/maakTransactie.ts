@@ -21,7 +21,7 @@ export class maakTransactie {
   
   transactieData = signal<TransactieDTO>({
     aantal : 0,
-    datum : '2000-02-02',
+    datum : "2000-02-02T00:00:00" ,
     beschrijving : ""
   })
 

@@ -1,0 +1,28 @@
+@if (budgets().length > 0) 
+{
+
+        <div class="budget-list">
+        @for (budget of budgets(); track $index) 
+        {
+            <div class="budget-card">
+                <div class="budget-name">
+                    {{ budget.naam }}
+                </div>
+                <div class="budget-amount">
+                    €{{ budget.aantal }}
+                </div>
+            </div>
+        }
+    </div>
+
+    <button class="create-btn" (click)="openModal()">+ Nieuw budget</button>  
+}
+@else {
+    <p class="empty-state">Je hebt nog geen budget gemaakt</p>
+    <button class="create-btn" (click)="openModal()">+ Nieuw budget</button>  
+}
+@if (showModal()) {
+        <app-budget-create-modal 
+            (close)="closeModal()">
+        </app-budget-create-modal>
+    }

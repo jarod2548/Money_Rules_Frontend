@@ -4,7 +4,7 @@
     <div class="form-group">
       <label for="number">Voer een getal in:</label>
      <input (input)="updateAantal($event)"
-      [formField]="transactieForm.aantal"
+      [value]="transactieData().aantal"
       type="number" id="number">
     </div>
 
@@ -12,7 +12,7 @@
       <label for="date">Select a date:</label>
       <input (input)="updateDatum($event)"
       [value]="transactieData().datum"
-      type="date" id="date" name="date">
+      type="datetime-local" id="date" name="date">
     </div>
 
     <div class="form-group">

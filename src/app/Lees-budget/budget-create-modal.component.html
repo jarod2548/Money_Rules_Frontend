@@ -1,0 +1,51 @@
+<div class="backdrop" (click)="close.emit()"></div>
+
+<div class="modal">
+    <h2>Nieuw Budget</h2>
+
+    <form>
+    
+    <div class="form-group">
+      <label>Naam</label>
+      <input 
+        type="text"
+        [value]="budgetData().naam"
+        (input)="updateNaam($event)">
+    </div>
+
+    <div class="form-group">
+      <label>Aantal</label>
+      <input 
+        type="number"
+        [value]="budgetData().aantal"
+        (input)="updateAantal($event)">
+    </div>
+
+    <div class="form-group">
+      <label>Begin datum</label>
+      <input 
+        type="date"
+        [value]="budgetData().beginDatum"
+        (input)="updateBeginDatum($event)">
+    </div>
+
+    <div class="form-group">
+      <label>Eind datum</label>
+      <input 
+        type="date"
+        [value]="budgetData().eindDatum"
+        (input)="updateEindDatum($event)">
+    </div>
+
+    <div class="actions">
+      <button type="button" (click)="close.emit()">Annuleren</button>
+      <button 
+        type="button" 
+        [disabled]="!formIsValid()" 
+        (click)="submit()">
+        Opslaan
+      </button>
+    </div>
+
+  </form>
+</div>

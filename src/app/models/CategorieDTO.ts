@@ -1,5 +1,5 @@
 export interface CategorieDTO {        
   beschrijving: string; 
   isBelangrijk : boolean;   
-  id : number;
+  id? : string;
 }

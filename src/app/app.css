@@ -5,14 +5,19 @@
   min-height: 100vh; /* full viewport height */
 }
 
-/* Fixed-height banner */
 .banner {
   background-color: #222;
   color: white;
-  text-align: middle;
-  padding: 15px 0;
+  padding: 15px 20px;
   font-size: 1.5rem;
-  flex-shrink: 0; /* banner does not shrink */
+
+  display: flex;
+  justify-content: space-between; /* pushes items apart */
+  align-items: center;            /* vertical alignment */
+}
+
+#login-button {
+  cursor: pointer;
 }
 
 /* Page content fills remaining space */
