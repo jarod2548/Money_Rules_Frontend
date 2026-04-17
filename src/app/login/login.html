@@ -8,7 +8,10 @@
 
         <div class="form-group">
           <label>Naam</label>
-          <input type="text" [value]="login().username" (input)="updateLoginNaam($any($event.target).value)" />
+          <input id="login-username-input"
+          type="text" 
+          [value]="login().username" 
+          (input)="updateLoginNaam($any($event.target).value)" />
           @if (loginNaamError()) {
             <small class="error">{{ loginNaamError() }}</small>
           }

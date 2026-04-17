@@ -28,8 +28,6 @@ export class App {
       .subscribe(user => {
         if (user) {
           this.userData.set(user);
-          console.log(user);
-          console.log(user.role);
         }
         else{
           this.router.navigate(['/login']);
