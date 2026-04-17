@@ -24,7 +24,9 @@ services:
       - "8080:8080"
 
   frontend:
-    image: ${{ secrets.DOCKERHUB_USERNAME }}/frontend:latest
+    build:
+      context: .
+      dockerfile: dockerfile
     depends_on:
       - backend
     ports:
