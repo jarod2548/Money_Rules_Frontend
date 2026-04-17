@@ -19,7 +19,10 @@
 
         <div class="form-group">
           <label>Wachtwoord</label>
-          <input type="password" [value]="login().wachtwoord" (input)="updateLoginWachtwoord($any($event.target).value)" />
+          <input id="login-password-input"
+          type="password" 
+          [value]="login().wachtwoord" 
+          (input)="updateLoginWachtwoord($any($event.target).value)" />
           @if (loginWachtwoordError()) {
             <small class="error">{{ loginWachtwoordError() }}</small>
           }
