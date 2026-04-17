@@ -37,7 +37,7 @@ jobs:
 
       - name: Pull backend image
         run: |
-          docker pull ${{ secrets.DOCKER_USERNAME }}/backend:latest
+          docker pull ${{ secrets.DOCKER_USERNAME }}/financial-app:latest
 
       - name: Start full stack
         run: docker compose -f docker-compose.e2e.yml up -d
