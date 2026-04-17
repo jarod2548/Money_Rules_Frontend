@@ -41,6 +41,8 @@ jobs:
 
       - name: Start full stack
         run: docker compose -f docker-compose.e2e.yml up -d
+        env:
+          DOCKERHUB_USERNAME: ${{ secrets.DOCKERHUB_USERNAME }}
 
       - name: Wait for services
         run: sleep 15  

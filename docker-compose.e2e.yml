@@ -12,7 +12,7 @@ services:
       retries: 10
 
   backend:
-    image: ${{ secrets.DOCKERHUB_USERNAME }}/backend:latest
+    image: ${{ DOCKERHUB_USERNAME }}/backend:latest
     depends_on:
       db:
         condition: service_healthy
