@@ -16,12 +16,6 @@ export class TransactieService {
   getTransacties(): Observable<TransactieDTO[]> {
     return this.http.get<TransactieDTO[]>('/api/user/transactie');
   }
-
-  saveTransactie(dto : TransactieDTO): void {
-    this.http.post<void>('/api/user/transactie', dto).subscribe({
-      next: () => console.log("transactie gemaakt"),
-      error: err => console.log(err)
-    });
-  }
 }
+
   
