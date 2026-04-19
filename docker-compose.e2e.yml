@@ -30,6 +30,11 @@ services:
       - backend
     ports:
       - "4200:80"
+    healthcheck:
+      test: ["CMD", "wget", "-qO-", "http://localhost:80"]
+      interval: 5s
+      timeout: 3s
+      retries: 20
 
   e2e:
     image: cypress/included:13.6.0
@@ -37,6 +42,7 @@ services:
     volumes:
       - ./:/e2e
     depends_on:
-      - frontend
+      frontend:
+        condition: service_healthy
     environment:
       - CYPRESS_baseUrl=http://frontend:80
