@@ -12,7 +12,7 @@ services:
       retries: 10
 
   backend:
-    image: JarodKonijnenberg/financial-app:latest
+    image: jarodkonijnenberg/financial-app:latest
     depends_on:
       db:
         condition: service_healthy
