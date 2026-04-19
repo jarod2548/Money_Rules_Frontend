@@ -12,7 +12,7 @@ services:
       retries: 10
 
   backend:
-    image: ${{ DOCKERHUB_USERNAME }}/backend:latest
+    image: JarodKonijnenberg/financial-app:latest
     depends_on:
       db:
         condition: service_healthy
