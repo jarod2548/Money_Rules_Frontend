@@ -1,7 +1,7 @@
 import { Component, computed, signal } from '@angular/core';
 import { FormsModule } from '@angular/forms'; 
 import { TransactieDTO } from '../models/TransactieDTO';
-import { TransactieService } from '../services/transactie.service';
+import { TransactieService } from './maakTransactie.service';
 import { form, FormField, min, required, submit } from '@angular/forms/signals';
 
 @Component({
@@ -21,7 +21,7 @@ export class maakTransactie {
   
   transactieData = signal<TransactieDTO>({
     aantal : 0,
-    datum : '2000-02-02',
+    datum : "2000-02-02T00:00:00" ,
     beschrijving : ""
   })
 
@@ -56,7 +56,7 @@ export class maakTransactie {
 onSubmit() {
 if(!this.formIsValid()) return;
     const data = this.transactieData();
-    this.transactieService.saveTransactie(data);
+    this.transactieService.saveTransactie(data).subscribe();
     alert('Form submitted!');
 
   }

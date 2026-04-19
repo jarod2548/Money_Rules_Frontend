@@ -16,8 +16,7 @@ export class maakCategorie {
 
  categorie: CategorieDTO = {
     beschrijving: '',
-    isBelangrijk: false,
-    id: 0
+    isBelangrijk: false
   };
 
 onSubmit() {

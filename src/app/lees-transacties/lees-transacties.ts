@@ -1,5 +1,5 @@
 import { Component, Inject, OnInit, PLATFORM_ID, signal } from '@angular/core';
-import { TransactieService } from '../services/transactie.service';
+import { TransactieService } from '../lees-transacties/leesTransactie.service';
 import { TransactieDTO } from '../models/TransactieDTO';
 import { CommonModule, isPlatformBrowser } from '@angular/common';
 

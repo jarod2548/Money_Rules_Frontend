@@ -1,22 +1,21 @@
 import { TestBed } from '@angular/core/testing';
+import { routes } from './app.routes';
 import { App } from './app';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, provideRouter } from '@angular/router';
 import { of } from 'rxjs';
+import { FormsModule } from '@angular/forms';
+import { provideHttpClient } from '@angular/common/http';
+import { importProvidersFrom } from '@angular/core';
 
 describe('App', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       imports: [App],
       providers: [
-        {
-          provide: ActivatedRoute,
-          useValue: {
-            params: of({ id: 123 }),      // mock route params if you use them
-            queryParams: of({ q: 'test' }),
-            snapshot: { paramMap: { get: (key: string) => '123' } },
-          },
-        },
-      ],
+      provideRouter(routes),
+      provideHttpClient(),
+      importProvidersFrom(FormsModule),
+   ],
     }).compileComponents();
   });
 
@@ -26,10 +25,14 @@ describe('App', () => {
     expect(app).toBeTruthy();
   });
 
-  it('should render title', async () => {
-    const fixture = TestBed.createComponent(App);
-    await fixture.whenStable();
-    const compiled = fixture.nativeElement as HTMLElement;
-    expect(compiled.querySelector('h1')?.textContent).toContain('Money Rulings');
-  });
+  it('should render title', () => {
+  const fixture = TestBed.createComponent(App);
+  fixture.detectChanges();
+
+  const compiled = fixture.nativeElement as HTMLElement;
+
+  const banner = compiled.querySelector('#banner-name');
+  expect(banner).not.toBeNull();
+  expect(banner!.textContent).toContain('Money Rulings');
+});
 });

@@ -1,0 +1,14 @@
+{
+  "extends": "../tsconfig.json",
+  "compilerOptions": {
+    "types": ["cypress", "node"],
+    "module": "ESNext",
+    "moduleResolution": "Bundler",
+    "target": "ES2020",
+    "noEmit": true
+  },
+  "include": [
+    "**/*.ts",
+    "../cypress.config.ts"
+  ]
+}
