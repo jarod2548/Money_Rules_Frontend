@@ -1,5 +1,4 @@
 {
-  "extends": "../tsconfig.json",
   "compilerOptions": {
     "types": ["cypress", "node"],
     "module": "ESNext",
@@ -8,7 +7,6 @@
     "noEmit": true
   },
   "include": [
-    "**/*.ts",
-    "../cypress.config.ts"
+    "**/*.ts"
   ]
 }
