@@ -1,6 +1,6 @@
 import { Component, OnInit, signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { TransactieService } from '../maakTransactie/maakTransactie.service';
+import { TransactieService } from '../services/transactie.service';
 import { TransactieResponseDTO } from '../models/TransactieResponseDTO';
 import { TransactieDTO } from '../models/TransactieDTO';
 import { TransactieCreateModalComponent } from './transactie-create-modal.component';
@@ -44,7 +44,7 @@ export class Transactie implements OnInit {
         this.closeModal();
         this.loadTransacties(); // refresh list
       },
-      error: (err) => console.error('Fout bij opslaan transactie', err),
+      error: (err: Error) => console.error('Fout bij opslaan transactie', err),
     });
   }
 }
