@@ -1,0 +1,49 @@
+<!-- lees-budget.html -->
+
+<div class="budget-page">
+  <div class="budget-card">
+    <h1 class="budget-title">
+      {{ budgetOverview().budgetDTO.naam }}
+    </h1>
+
+    <p class="budget-dates">
+  {{ budgetOverview().budgetDTO.beginDatum | date:'dd-MM-yyyy' }} -
+  {{ budgetOverview().budgetDTO.eindDatum | date:'dd-MM-yyyy' }}
+</p>
+
+    <div class="uitgave-box">
+      <span class="uitgave-label">Totaal uitgegeven</span>
+      <span class="uitgave-bedrag">
+        € {{ budgetOverview().totaalUitgave }} / € {{ budgetOverview().budgetDTO.aantal }} 
+      </span>
+    </div>
+  </div>
+
+  <div class="indelingen-container">
+  @for (indeling of budgetOverview().indelingen; track indeling.id) {
+    <div class="bar-item">
+      <div class="bar-wrapper">
+        <div class="bar-fill" [style.height.%]="indeling.percentage"></div>
+      </div>
+
+      <div class="bar-label">
+        <h4>{{ indeling.categorieNaam }}</h4>
+        <span>€ {{ indeling.aantal }}</span>
+        <small>{{ indeling.percentage }}%</small>
+      </div>
+    </div>
+  }
+</div>
+</div>
+
+<button class="create-btn secondary" (click)="openIndelingModal(budgetId)">
+  + Budget indeling
+</button>
+
+@if (showIndelingModal()) {
+  <app-budget-indeling-create-component
+    [budgetId]="budgetId"
+    (save)="addIndeling($event)"
+    (close)="closeIndelingModal()">
+  </app-budget-indeling-create-component>
+}

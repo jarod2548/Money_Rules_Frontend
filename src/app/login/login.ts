@@ -3,10 +3,9 @@ import { LoginDTO } from '../models/LoginDTO';
 import { RegisterDTO } from '../models/RegisterDTO';
 import { UserService } from '../services/user.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
-import { Router } from '@angular/router';
-import { isPlatformBrowser } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { catchError, of } from 'rxjs';
+import { Router } from '@angular/router';
+import { SSEService } from '../services/SSE.service';
 
 
 @Component({
@@ -19,7 +18,9 @@ import { catchError, of } from 'rxjs';
 export class Login {
 
   constructor(private userService : UserService, 
-              private snackBar : MatSnackBar){}
+              private snackBar : MatSnackBar, 
+              private router : Router,
+              private sseService : SSEService){}
 
   
 
@@ -104,18 +105,16 @@ export class Login {
 
   // 🔹 submit
   submitLogin() {
-    console.log("starting login")
     this.loginSubmitted.set(true);
     if (!this.loginFormValid()) {
       console.log("wrong login formatted")
       return;
     }
-
-    console.log('Login DTO:', this.login());
     this.userService.login(this.login()).subscribe(resultaat => {
       console.log(resultaat); 
       if(resultaat.length != 0 && resultaat != null){
-        //this.router.navigate(["/home"]);
+        this.sseService.connect();
+        this.router.navigate(["/home"]);
       }
     });
   }

@@ -6,4 +6,4 @@ describe('My First Test', () => {
 
     cy.get("#login-password-input").type("1234")
   })
-})
+});

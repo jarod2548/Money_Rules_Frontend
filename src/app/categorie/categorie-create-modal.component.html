@@ -1,0 +1,61 @@
+<!-- categorie.html -->
+
+<div class="modal-overlay" (click)="closeModal()">
+  <div class="modal-content" (click)="$event.stopPropagation()">
+    
+    <div class="modal-header">
+      <h2>Categorie aanmaken</h2>
+
+      <button class="close-btn" (click)="closeModal()">
+        ✕
+      </button>
+    </div>
+
+    <div class="form-group">
+      <label>Naam</label>
+
+      <input
+        type="text"
+        [ngModel]="categorieData().naam"
+        (ngModelChange)="categorieData.update(c => ({ ...c, naam: $event }))"
+        placeholder="Bijvoorbeeld: Boodschappen"
+      />
+    </div>
+
+    <div class="checkbox-group">
+      <input
+        id="belangrijk"
+        type="checkbox"
+        [checked]="categorieData().isBelangrijk"
+        (change)="categorieData.update(c => ({
+          ...c,
+          isBelangrijk: $any($event.target).checked
+        }))"
+      />
+
+      <label for="belangrijk">
+        Belangrijke categorie
+      </label>
+    </div>
+
+    @if (error()) {
+      <p class="error-text">
+        {{ error() }}
+      </p>
+    }
+
+    <div class="button-group">
+      <button class="cancel-btn" (click)="closeModal()">
+        Annuleren
+      </button>
+
+      <button
+        class="save-btn"
+        (click)="onSubmit()"
+      >
+      Opslaan
+      </button>
+    </div>
+
+  </div>
+</div>

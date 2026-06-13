@@ -1,0 +1,42 @@
+<div class="notifications-container">
+
+  <div class="header">
+    <h2>Notifications</h2>
+  </div>
+
+  @if (sseService.messages$ | async; as notifications) {
+
+    @if (notifications.length === 0) {
+      <div class="empty">
+        No notifications yet
+      </div>
+    }
+
+    @if (notifications.length > 0) {
+      <div class="list">
+
+        @for (n of notifications; track $index) {
+          <div class="notification-card" [class]="n.type">
+
+            @if (n.type === 'budget-melding') {
+              <div class="title">Budget exceeded</div>
+
+              <div class="body">
+                <strong>{{ n.data.budgetNaam }}</strong>
+                exceeded limit.
+              </div>
+
+              <div class="meta">
+                Aantal overschreden: {{ n.data.overschredenAantal }}
+              </div>
+            }
+
+          </div>
+        }
+
+      </div>
+    }
+
+  }
+
+</div>

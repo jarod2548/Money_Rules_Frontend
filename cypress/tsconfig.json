@@ -8,5 +8,5 @@
   },
   "include": [
     "**/*.ts"
-  ]
+  , "../cypress.config.ts"  ]
 }

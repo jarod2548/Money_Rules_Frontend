@@ -1,0 +1,120 @@
+/* lees-budget.css */
+
+.budget-page {
+  padding: 2rem;
+  background: #f4f6f9;
+  min-height: 100vh;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.budget-card {
+  background: white;
+  border-radius: 20px;
+  padding: 2rem;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  margin-bottom: 2rem;
+}
+
+.budget-title {
+  font-size: 2.2rem;
+  margin: 0;
+  color: #1e293b;
+}
+
+.budget-dates {
+  margin-top: 0.5rem;
+  color: #64748b;
+  font-size: 1rem;
+}
+
+.uitgave-box {
+  margin-top: 1.5rem;
+  background: #eff6ff;
+  border-radius: 14px;
+  padding: 1rem 1.5rem;
+  display: inline-flex;
+  flex-direction: column;
+}
+
+.uitgave-label {
+  color: #64748b;
+  font-size: 0.9rem;
+}
+
+.uitgave-bedrag {
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: #2563eb;
+  margin-top: 0.2rem;
+}
+
+.indeling-card {
+  min-width: 240px;
+  background: white;
+  border-radius: 18px;
+  padding: 1.5rem;
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.06);
+  transition: transform 0.2s ease;
+}
+
+.indeling-card:hover {
+  transform: translateY(-4px);
+}
+
+.indeling-card h3 {
+  margin-top: 0;
+  margin-bottom: 1.2rem;
+  color: #0f172a;
+}
+
+.indeling-info {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 0.8rem;
+  color: #475569;
+}
+
+.indeling-info strong {
+  color: #111827;
+}
+
+.indelingen-container {
+  display: flex;
+  align-items: flex-end;
+  gap: 16px;
+  margin-top: 20px;
+  overflow-x: auto;
+  padding-bottom: 1rem;
+}
+
+.bar-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 80px;
+}
+
+.bar-wrapper {
+  height: 200px;
+  width: 30px;
+  background: #e5e7eb;
+  border-radius: 8px;
+  display: flex;
+  align-items: flex-end;
+  overflow: hidden;
+}
+
+.bar-fill {
+  width: 100%;
+  background: #3b82f6;
+  transition: height 0.3s ease;
+}
+
+.bar-label {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  margin-top: 8px;
+  gap: 2px;
+}

@@ -1,6 +1,33 @@
-<div class="container">
-  <button class="square-button" [routerLink]="['/maakTransactie']">Nieuwe transactie</button>
-<button class="square-button" [routerLink]="['/leesTransacties']">Lees transacties</button>
-  <button class="square-button" [routerLink]="['/maakCategorie']">Maak categorie</button>
-  <button class="square-button" [routerLink]="['/leesBudget']">Budget</button>
+<div class="dashboard">
+
+  <div class="welcome-section">
+    <h1>Money Rulings</h1>
+    <p>Beheer je transacties en budgetten.</p>
+  </div>
+
+  <div class="main-grid">
+
+    <button class="dashboard-card transactions"
+            [routerLink]="['/transactie']">
+      <span class="icon">💳</span>
+      <h2>Transacties</h2>
+      <p>Bekijk transacties of maak een nieuwe.</p>
+    </button>
+
+    <button class="dashboard-card budgets"
+            [routerLink]="['/leesBudgets']">
+      <span class="icon">📊</span>
+      <h2>Budgetten</h2>
+      <p>Beheer budgetten en bekijk uitgaven.</p>
+    </button>
+
+    <button class="dashboard-card categories category-card"
+            [routerLink]="['/categorie']">
+      <span class="icon">📂</span>
+      <h2>Categorieën</h2>
+      <p>Beheer categorieën voor transacties.</p>
+    </button>
+
+  </div>
+
 </div>

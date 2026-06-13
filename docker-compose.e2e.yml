@@ -39,13 +39,14 @@ services:
       retries: 20
 
   e2e:
-    image: cypress/included:15.14.0
-    working_dir: /
+    image: cypress/included:15.1.0
+    entrypoint: []
+    working_dir: /e2e
     volumes:
-    - ./:/e2e
-    command: npx cypress run --config-file /e2e/cypress.config.ts
+      - ./:/e2e
     depends_on:
       frontend:
         condition: service_healthy
     environment:
       - CYPRESS_baseUrl=http://frontend:80
+    command: cypress run

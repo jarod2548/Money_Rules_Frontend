@@ -39,6 +39,15 @@ export class UserService {
         })
       )
     }
+    logout() {
+    return this.http.post<void>(`/api/logout`, {}).pipe(
+      map(() => true),
+      catchError(err => {
+        console.error('Logout failed', err);
+        return of(false);
+      })
+    );
+  }
     
     authorize() {
     return this.http.get<LoginResponseDTO>(`/api/me`).pipe(
