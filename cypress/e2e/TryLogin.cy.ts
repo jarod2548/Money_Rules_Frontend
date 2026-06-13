@@ -6,7 +6,8 @@ describe('template spec', () => {
     cy.get('#login-username-input').type('user1');
     cy.get('#login-password-input').type('password');
     cy.get('button[type="submit"]').click();
-    cy.url().should('not.include', '/login');
     cy.getCookie('jwt').should('exist');
+    cy.url().should('not.include', '/login');
+    
   });
 })
