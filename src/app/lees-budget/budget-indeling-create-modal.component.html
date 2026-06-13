@@ -1,0 +1,55 @@
+<div class="modal-backdrop" (click)="closeModal()">
+
+  <div class="modal" (click)="$event.stopPropagation()">
+
+    <h2>Budget indeling toevoegen</h2>
+
+    <!-- Aantal -->
+    <div class="form-group">
+      <label>Aantal (€)</label>
+
+      <input
+        type="number"
+        [value]="budgetIndelingData().aantal"
+        (input)="onAantalChange($event)"
+      />
+    </div>
+
+    <!-- Categorie -->
+    <div class="form-group">
+      <label>Categorie</label>
+
+      <select
+        [value]="budgetIndelingData().categorieID"
+        (change)="onCategorieChange($event)"
+      >
+        <option value="">-- kies categorie --</option>
+
+        @for (c of categorien(); track c.id) {
+          <option [value]="c.id">
+            {{ c.naam }}
+          </option>
+        }
+      </select>
+    </div>
+
+    <!-- Actions -->
+    <div class="actions">
+
+      <button type="button" (click)="closeModal()">
+        Annuleren
+      </button>
+
+      <button
+        type="button"
+        [disabled]="!formIsValid()"
+        (click)="onSubmit()"
+      >
+        Opslaan
+      </button>
+
+    </div>
+
+  </div>
+
+</div>

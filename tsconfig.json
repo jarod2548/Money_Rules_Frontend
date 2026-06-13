@@ -28,6 +28,10 @@
     },
     {
       "path": "./tsconfig.spec.json"
+    },
+    {
+      "path": "./cypress/tsconfig.json"
     }
-  ]
+  ],
+  "exclude": ["cypress.config.ts", "cypress", "node_modules"]
 }

@@ -1,0 +1,75 @@
+<div class="modal-backdrop" (click)="closeModal()">
+
+  <div class="modal" (click)="$event.stopPropagation()">
+
+    <h2>Nieuwe transactie</h2>
+
+    <form (ngSubmit)="onSubmit()">
+
+      <!-- Beschrijving -->
+      <div class="form-group">
+        <label>Beschrijving</label>
+        <input
+          type="text"
+          [value]="transactieData().beschrijving"
+          (input)="onBeschrijvingChange($event)"
+          required
+        />
+      </div>
+
+      <!-- Aantal -->
+      <div class="form-group">
+        <label>Aantal (€)</label>
+        <input
+          type="number"
+          [value]="transactieData().aantal"
+          (input)="onAantalChange($event)"
+          required
+        />
+      </div>
+
+      <!-- Datum -->
+      <div class="form-group">
+        <label>Datum</label>
+        <input
+          type="date"
+          [value]="formatDate(transactieData().datum)"
+          (input)="onDatumChange($event)"
+          required
+        />
+      </div>
+
+      <!-- Categorie -->
+      
+    <div class="form-group">
+    <label>Categorie</label>
+
+    <select
+        [value]="transactieData().categorieId ?? ''"
+        (change)="onCategorieChange($event)"
+    >
+        <option value="">-- Geen categorie --</option>
+
+        @for (c of categorien(); track c.id) {
+        <option [value]="c.id">
+            {{ c.naam }}
+        </option>
+        }
+    </select>
+    </div>
+
+      <!-- Buttons -->
+      <div class="actions">
+        <button type="button" class="secondary" (click)="closeModal()">
+          Annuleren
+        </button>
+
+        <button type="submit">
+          Opslaan
+        </button>
+      </div>
+
+    </form>
+
+  </div>
+</div>

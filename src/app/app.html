@@ -1,5 +1,49 @@
 <div class="banner">
-  <h1>Money Rulings</h1>
+  <a id="banner-name" [routerLink]="['/home']">Money Rulings</a>
+
+  <!-- Notifications button -->
+  <button id="notifications-button" class="notif-btn" [routerLink]="['/notifications']">
+    🔔 @if (sseService.messages$ | async; as notifications){
+      @if (notifications.length > 0) {
+      <span class="notif-badge">
+        {{ notifications.length }}
+      </span>
+    }
+    }
+  </button>
+    
+    
+
+  @if(userData().naam === ''){
+    <button class="login-btn" [routerLink]="['/login']">
+      Login
+    </button>
+  }
+  @else {
+    <div class="user-menu">
+
+  <button class="profile-button" (click)="toggleDropdown()">
+    <span class="avatar">
+      {{ userData().naam.charAt(0).toUpperCase() }}
+    </span>
+
+    <span class="username">
+      {{ userData().naam }}
+    </span>
+
+    <span class="arrow">▼</span>
+  </button>
+
+  @if (dropdownOpen()) {
+    <div class="dropdown">
+      <button class="dropdown-item" (click)="logout()">
+        Logout
+      </button>
+    </div>
+  }
+
+</div>
+  }
 </div>
 
 <div class="page-content">

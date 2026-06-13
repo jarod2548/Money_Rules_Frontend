@@ -1,0 +1,42 @@
+<div class="categorie-page">
+
+  <div class="header">
+
+    <h1>Categorieën</h1>
+
+    <button class="add-btn" (click)="openModal()">
+      + Nieuwe categorie
+    </button>
+
+  </div>
+
+  <div class="categorie-grid">
+
+    @for (categorie of categorien(); track categorie.id) {
+
+      <div class="categorie-card">
+
+        <h3>{{ categorie.naam }}</h3>
+
+        @if (categorie.isBelangrijk) {
+          <span class="badge">
+            Belangrijk
+          </span>
+        }
+
+      </div>
+
+    }
+
+  </div>
+
+  @if (showModal()) {
+
+    <app-categorie-create-component
+  (close)="closeModal()"
+  (save)="addCategorie($event)">
+    </app-categorie-create-component>
+
+  }
+
+</div>

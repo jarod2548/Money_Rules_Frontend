@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { TransactieDTO } from '../models/TransactieDTO';
+import { TransactieResponseDTO } from '../models/TransactieResponseDTO';
 
 
 
@@ -10,19 +11,15 @@ import { TransactieDTO } from '../models/TransactieDTO';
   providedIn: 'root'
 })
 export class TransactieService {
-  private apiUrl = '/api/transacties';
 
   constructor(private http: HttpClient) {}
 
-  getTransacties(): Observable<TransactieDTO[]> {
-    return this.http.get<TransactieDTO[]>(this.apiUrl);
+  saveTransactie(dto: TransactieDTO): Observable<void> {
+  return this.http.post<void>('/api/user/transactie', dto);
   }
-
-  saveTransactie(dto : TransactieDTO): void {
-    this.http.post<void>(this.apiUrl, dto).subscribe({
-      next: () => console.log("transactie gemaakt"),
-      error: err => console.log(err)
-    });
+  getTransacties() : Observable<TransactieResponseDTO[]> {
+    return this.http.get<TransactieResponseDTO[]>(`api/user/transactie`);
   }
 }
+
   

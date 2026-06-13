@@ -1,0 +1,122 @@
+/* Full page background */
+body, html {
+  margin: 0;
+  padding: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: #f0f2f5;
+  height: 100%;
+}
+
+/* Center container vertically & horizontally */
+.auth-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  gap: 20px;
+  padding: 20px;
+  flex-direction: column; /* stacked nicely on mobile */
+}
+
+/* Form containers */
+.login-container, .register-container {
+  background: white;
+  padding: 40px 30px;
+  border-radius: 12px;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
+  width: 320px;
+  max-width: 90vw;
+  transition: all 0.3s ease;
+}
+
+/* Form title */
+.login-container h2,
+.register-container h2 {
+  margin-bottom: 25px;
+  color: #222;
+  text-align: center;
+}
+
+/* Form groups */
+.form-group {
+  margin-bottom: 18px;
+  display: flex;
+  flex-direction: column;
+}
+
+label {
+  font-weight: 500;
+  margin-bottom: 6px;
+  color: #555;
+}
+
+input {
+  padding: 10px 12px;
+  font-size: 1rem;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  transition: border 0.2s ease, box-shadow 0.2s ease;
+}
+
+input:focus {
+  border-color: #222;
+  box-shadow: 0 0 5px rgba(34, 34, 34, 0.2);
+  outline: none;
+}
+
+/* Buttons */
+button {
+  width: 100%;
+  padding: 12px;
+  font-size: 1rem;
+  font-weight: 600;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.2s ease;
+  margin-top: 5px;
+}
+
+button[type="submit"] {
+  background: #222;
+  color: white;
+}
+
+button[type="submit"]:hover {
+  background: #444;
+  transform: translateY(-1px);
+}
+
+button[type="button"] {
+  background: transparent;
+  color: #222;
+  border: 1px solid #222;
+  margin-top: 10px;
+}
+
+button[type="button"]:hover {
+  background: #222;
+  color: white;
+}
+
+/* Error messages */
+.error {
+  color: #d93025;
+  font-size: 0.85rem;
+  margin-top: 4px;
+}
+
+/* Toggle paragraph */
+p {
+  text-align: center;
+  font-size: 0.9rem;
+  margin-top: 15px;
+  color: #555;
+}
+
+/* Responsive adjustments */
+@media (min-width: 768px) {
+  .auth-container {
+    flex-direction: row; /* side by side on desktop */
+  }
+}

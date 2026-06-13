@@ -1,0 +1,41 @@
+<div class="transactie-container">
+
+  <div class="header">
+    <h2>Transacties</h2>
+    <button (click)="openModal()">+ Nieuwe transactie</button>
+  </div>
+
+  <div class="list">
+    @for (t of transacties(); track t.id) {
+      <div class="card">
+
+        <div class="card-top">
+          <div class="title">{{ t.beschrijving }}</div>
+
+          @if (t.categorieNaam) {
+            <span class="badge">{{ t.categorieNaam }}</span>
+          }
+        </div>
+
+        <div class="card-bottom">
+          <div class="amount">
+            {{ t.aantal | currency:'EUR':'symbol':'1.2-2' }}
+          </div>
+
+          <div class="date">
+            {{ t.datum | date:'mediumDate' }}
+          </div>
+        </div>
+
+      </div>
+    }
+  </div>
+
+  @if (showModal()) {
+    <app-transactie-create-component
+      (close)="closeModal()"
+      (save)="saveTransactie($event)">
+    </app-transactie-create-component>
+  }
+
+</div>
